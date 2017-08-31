@@ -12,7 +12,7 @@ modifiers of the regular expression world, neither it is a tutorial on how to us
 
 This is just a cheat sheet of the, in my opinion, most used features of the complex world of regex.
 
-#<center>PHP Regex Cheat Sheet</center>
+# <center>PHP Regex Cheat Sheet</center>
 
 |Base Chars |                             |Meta Chars           |                         |
 |:---:      |---                          |:---:                |---                      |
@@ -25,7 +25,10 @@ This is just a cheat sheet of the, in my opinion, most used features of the comp
 |`\b`       |Word boundary                |`)`                  |End subpattern           |
 |`\B`       |Not word boundary            |`\`                  |Escape char              |
 |`.`        |Any character                |                     |                         |
+
+
 ---
+
 |Quantifiers|                             |Modifiers            |                                                 |
 |:---:      |---                          |:---:                |---                                              |
 |`*`        |Zero or more                 |`i`                  |Ignore case                                      |
@@ -35,7 +38,9 @@ This is just a cheat sheet of the, in my opinion, most used features of the comp
 |`{n,}`     |At least n                   |`U`                  |Ungreedy                                         |
 |`{,m}`     |At most m                    |`u`                  |Treat as UTF-8                                   |
 |`{n,m}`    |From n to m                  |                     |*[more about modifiers](http://php.net//manual/en/reference.pcre.pattern.modifiers.php)*|
+
 ---
+
 |PHP Functions                                                                                                    |
 |---                                                                                                              |
 |[preg_match(pattern, subject[, submatches])](http://php.net/manual/en/function.preg-match.php)                   |
@@ -47,4 +52,5 @@ This is just a cheat sheet of the, in my opinion, most used features of the comp
 
 <br>
 <br>
+
 For a much more detailed documentation visit: [PHP: PCRE Patterns](http://php.net/manual/en/pcre.pattern.php)

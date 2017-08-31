@@ -2,7 +2,7 @@
 This is my personal blog using a jekyll theme called Thinny
 
 #This is a modification of Thinny
-It is pretty the same as the original one just made some little changes to suit my needs
+It is pretty much the same as the original one just made some little changes to suit my needs
 
 The original readme of the theme is presented below:
 
