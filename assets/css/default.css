@@ -487,3 +487,10 @@ pre code {
 	font-size: 12pt;
 	color: #999;
 }
+
+#error-number {
+	color: #fff;
+	opacity: 0.75;
+	font-size: 420px;
+	font-weight: bold
+}
