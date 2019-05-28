@@ -3,4 +3,34 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: home
+
+sidebar:
+  -
+    title: "Repository for things I learn while adulting"
+    image: "/assets/images/jt-logo.png"
+    # nav: home-sidebar-nav
+
+feature_row:
+  - image_path: /assets/images/code_black.jpg
+    title: "Tutorials"
+    excerpt: "Some how tos ranging from cheatsheet style to step-by-step guides."
+    url: "/category/tutorial"
+    btn_label: "Lets go!"
+    btn_class: "btn--warning"
+
+  - image_path: /assets/images/studying.jpg
+    title: "Programming 101"
+    excerpt: "If you are an absolute beginner and want a mellow introduction to programming concepts. This is for you."
+    url: "/category/programming-101"
+    btn_label: "I want to learn"
+    btn_class: "btn--warning"
+
+  - image_path: /assets/images/recipes.jpg
+    title: "Recipes"
+    excerpt: "My personal selection of recipes. Nothing fancy, mostly comfort, tips and tricks that I have learned throughout my home cook career."
+    url: "/recipes"
+    btn_label: "To flavour town"
+    btn_class: "btn--warning"
 ---
+
+{% include feature_row %}
