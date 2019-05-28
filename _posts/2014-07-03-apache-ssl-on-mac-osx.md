@@ -4,6 +4,7 @@ date:   2014-07-03 14:05:18 -0500
 categories: tutorial
 tags: apache ssl macosx macos
 toc: true
+toc_sticky: true
 toc_label: "In this article"
 toc_icon: "flask"
 header:
