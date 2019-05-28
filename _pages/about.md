@@ -1,7 +1,7 @@
 ---
 layout: single
 title: About
-permalink: /about/
+permalink: /about
 ---
 
 <i class="fas fa-laptop-code" style="color: #d26b42"></i> Software development<br>
