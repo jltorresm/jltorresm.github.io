@@ -4,15 +4,8 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
-
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+<i class="fas fa-laptop-code" style="color: #d26b42"></i> Software development<br>
+<i class="fas fa-hotdog"      style="color: #d26b42"></i> Amateur homecook<br>
+<i class="fas fa-drum"        style="color: #d26b42"></i> Rock and jazz<br>
+<i class="fas fa-mountain"    style="color: #d26b42"></i> Rock climbing<br>
+<i class="fas fa-dragon"      style="color: #d26b42"></i> Full time mythical creature enthusiast<br>
