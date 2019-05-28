@@ -6,18 +6,23 @@ tags: apache ssl macosx macos
 toc: true
 toc_label: "In this article"
 toc_icon: "flask"
+header:
+  overlay_image: "/assets/images/laptop_folded_black_bg.jpg"
+  overlay_filter: rgba(255, 255, 255, 0.3)
+  teaser: "/assets/images/laptop_folded_black_bg.jpg"
+  caption: "Photo by [Philipp Katzenberger](https://unsplash.com/@fantasyflip) on Unsplash"
 ---
 
-# How to run ssl on your localhost
----
-Recently I ran into a tutorial that explained pretty well how to set up open ssl with a self signed certificate on Mac OSX 10.7 to test
-https in your localhost.
+Recently I ran into a tutorial that explained pretty well how to set up open ssl with a self signed certificate on Mac
+OSX 10.7 to test https in your localhost.
 
 Now I tweak it a little bit (just some details) to run it on **Mac OSX 10.9** better known as **Mavericks**.
 
-Of course this set of instructions may or may not need some adjustments to suit your environment...
+Of course this set of instructions may or may not need some adjustments to suit your environment.
 
----
+Without further ado, here it is.
+
+# How to run ssl on your localhost
 
 ## 1. Generate the host key
 We need to generate a key for the server. Remember do **NOT** enter a pass phrase for this key, when prompted just leave it blank.
