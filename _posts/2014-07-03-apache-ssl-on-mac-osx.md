@@ -1,17 +1,17 @@
 ---
-title: "Apache SSL on Mac OSX"
-date:   2014-07-03 14:05:18 -0500
+title:      "Apache SSL on Mac OSX"
+date:       2014-07-03 14:05:18 -0500
 categories: tutorial
-tags: apache ssl macosx macos
-toc: true
+tags:       apache ssl macosx macos
+toc:        true
 toc_sticky: true
-toc_label: "In this article"
-toc_icon: "flask"
+toc_label:  "In this article"
+toc_icon:   "flask"
 header:
-  overlay_image: "/assets/images/laptop_folded_black_bg.jpg"
+  overlay_image:  "/assets/images/laptop_folded_black_bg.jpg"
+  teaser:         "/assets/images/laptop_folded_black_bg.jpg"
   overlay_filter: rgba(255, 255, 255, 0.3)
-  teaser: "/assets/images/laptop_folded_black_bg.jpg"
-  caption: "Photo by [Philipp Katzenberger](https://unsplash.com/@fantasyflip) on Unsplash"
+  caption:        "Photo by [Philipp Katzenberger](https://unsplash.com/@fantasyflip) on Unsplash"
 ---
 
 Recently I ran into a tutorial that explained pretty well how to set up open ssl with a self signed certificate on Mac

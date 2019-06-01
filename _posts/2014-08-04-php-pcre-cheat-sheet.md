@@ -1,13 +1,13 @@
 ---
-title: "PHP PCRE Cheat Sheet"
-date:   2014-08-04 14:05:18 -0500
+title:      "PHP PCRE Cheat Sheet"
+date:       2014-08-04 14:05:18 -0500
 categories: tutorial
-tags: php pcre regex
+tags:       php pcre regex
 header:
-  overlay_image: "/assets/images/code_black.jpg"
+  overlay_image:  "/assets/images/code_black.jpg"
+  teaser:         "/assets/images/code_black.jpg"
   overlay_filter: rgba(255, 255, 255, 0.1)
-  teaser: "/assets/images/code_black.jpg"
-  caption: "Photo by [Luca Bravo](https://unsplash.com/@lucabravo) on Unsplash"
+  caption:        "Photo by [Luca Bravo](https://unsplash.com/@lucabravo) on Unsplash"
 ---
 
 As a first thought this post isn't meant to be a super complete explanation of all the characters, quantifiers,
