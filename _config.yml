@@ -15,6 +15,10 @@ remote_theme             : "mmistakes/minimal-mistakes"
 # remote_theme             : "mmistakes/minimal-mistakes@4.16.4"
 minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
+footer_scripts:
+  - /assets/js/main.min.js
+  - /assets/js/spoilers.js
+
 # Site Settings
 locale                   : "en-GB"
 title                    : "A matter of life and death"
