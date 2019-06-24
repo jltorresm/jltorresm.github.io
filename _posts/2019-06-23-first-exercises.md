@@ -1,6 +1,6 @@
 ---
 title:      "Programming Fundamentals: Exercises 1"
-date:       2019-06-18 16:10:00
+date:       2020-06-18 16:10:00
 categories: programming-101
 tags:       programming fundamentals 101 exercises conditionals loops for if else
 toc:        true
