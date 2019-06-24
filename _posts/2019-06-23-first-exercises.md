@@ -179,6 +179,11 @@ This solution has several optimizations that could be made. But for learning pur
 These is a small list of problems you can use to practice your coding skills, they are arranged in approximately
 ascending order depending on difficulty (from easiest to hardest). Good luck!
 
+**Note**: Remember that the shown answers are just a reference and are **not** the _absolute_ or _best_ answer for every
+problem. You can solve each problem in several ways, don't feel like you have to match my code.
+{: .notice--warning}
+
+
 ### 1 Hello world
 Create a program that prints to the screen the message `"Hello from Go land!"`.
 
@@ -198,7 +203,14 @@ Create a program that defines a variable `name`, store the name of your best fri
    the message `"Hello {name}! I'm coding in Go"` (replace `{name}` with the content of your variable called `name`)
 
 ```go
-// asdf
+package main
+
+import "fmt"
+
+func main() {
+	name := "Alice"
+	fmt.Printf("Hello %s", name)
+}
 ```
 {: .spoiler}
 
@@ -206,7 +218,16 @@ Create a program that defines a variable `name`, store the name of your best fri
 Modify the previous program so that only if the name is `"bob"` the greeting will be printed in the screen.
 
 ```go
-// asdf
+package main
+
+import "fmt"
+
+func main() {
+	name := "alice"
+	if name == "bob" {
+		fmt.Printf("Hello %s", name)
+	}
+}
 ```
 {: .spoiler}
 
@@ -214,7 +235,21 @@ Modify the previous program so that only if the name is `"bob"` the greeting wil
 Create a program that prints the maximum between 2 numbers.
 
 ```go
-// asdf
+package main
+
+import "fmt"
+
+func main() {
+	var num1, num2, max = 15, 35, 0
+
+	if num1 > num2 {
+		max = num1
+	} else {
+		max = num2
+	}
+
+	fmt.Printf("The max between %d and %d is: %d", num1, num2, max)
+}
 ```
 {: .spoiler}
 
@@ -223,7 +258,19 @@ Make a program that calculates the sum of all the numbers from 1 to 100 (i.e.: `
 the result to the screen.
 
 ```go
-// asdf
+package main
+
+import "fmt"
+
+func main() {
+	var from, to, sum int = 1, 100, 0
+
+	for i := from; i <= to; i++ {
+		sum += i
+	}
+
+	fmt.Printf("The sum from %d to %d is: %d", from, to, sum)
+}
 ```
 {: .spoiler}
 
@@ -231,8 +278,36 @@ the result to the screen.
 Make a program that prints stars(`*`) depending on a variable `numStars` (e.g.: if numStars is 3 print `***`). Note: the
 range of stars goes from 0 to 5.
 
+Answer 1:
+
 ```go
-// asdf
+package main
+
+import "fmt"
+
+func main() {
+	numStars := 3
+	for i := numStars; i > 0; i-- {
+		fmt.Print("*")
+	}
+}
+```
+{: .spoiler}
+
+Answer 2:
+
+```go
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+func main() {
+	numStars := 5
+	fmt.Println(strings.Repeat("*", numStars))
+}
 ```
 {: .spoiler}
 
