@@ -350,6 +350,8 @@ Another useful type are the **comparison operators**, which take two values of t
 | `<=`   | less or equal    |
 | `>`    | greater          |
 | `>=`   | greater or equal |
+| `&&`   | logic and        |
+| `||`   | logic or         |
 
 An example:
 
