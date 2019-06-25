@@ -157,7 +157,7 @@ func main() {
 	var num int = 655360001
 	var isPrime bool = true
 
-	for i := 2; i < num/2; i++ {
+	for i := 2; i <= num/2; i++ {
 		if num%i == 0 {
 			isPrime = false
 			break
@@ -316,7 +316,19 @@ Write a program that calculate the sum of all the multiples of 5 which are less 
 result to the screen.
 
 ```go
-// asdf
+package main
+
+import "fmt"
+
+func main() {
+	var check, target, total = 5, 100, 0
+	for i := 1; i <= target; i++ {
+		if i % check == 0 {
+			total += i
+		}
+	}
+	fmt.Printf("The sum of all mutiples of %d up to %d is: %d", check, target, total)
+}
 ```
 {: .spoiler}
 
@@ -324,15 +336,57 @@ result to the screen.
 Write a program that prints the prime numbers up to 1000.
 
 ```go
-// asdf
+package main
+
+import "fmt"
+
+func main() {
+	for num := 2; num <= 1000; num++ {
+		isPrime := true
+
+		for i := 2; i <= num/2; i++ {
+			if num%i == 0 {
+				isPrime = false
+				break
+			}
+		}
+
+		if isPrime {
+			fmt.Printf("%d ", num)
+		}
+	}
+}
 ```
 {: .spoiler}
 
 ### 9 Factors of a number
-Write a program that prints the factors (numbers that divide exactly) a given integer (e.g.: the factors of 60 are 3, 4, and 5).
+Write a program that prints the prime factors (prime numbers that divide exactly) a given integer (e.g.: the factors of
+60 are 2, 3, and 5).
 
 ```go
-// asdf
+package main
+
+import "fmt"
+
+func main() {
+	num2Check := 30030
+
+	for possibleFactor := 2; possibleFactor <= num2Check/2; possibleFactor++ {
+		isPrime := true
+
+		for i := 2; i <= possibleFactor/2; i++ {
+			if possibleFactor%i == 0 {
+				isPrime = false
+				break
+			}
+		}
+
+		// We check divisibility only if the number is prime
+		if isPrime && num2Check%possibleFactor == 0 {
+			fmt.Printf("%d ", possibleFactor)
+		}
+	}
+}
 ```
 {: .spoiler}
 
