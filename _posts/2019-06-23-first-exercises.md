@@ -179,7 +179,11 @@ This solution has several optimizations that could be made. But for learning pur
 These is a small list of problems you can use to practice your coding skills, they are arranged in approximately
 ascending order depending on difficulty (from easiest to hardest). Good luck!
 
-**Note**: Remember that the shown answers are just a reference and are **not** the _absolute_ or _best_ answer for every
+**Note**: Attempt to solve the problems on your own, **do not** just use the reference solutions. For your own sake do
+not cheat when trying to solve the exercises.
+{: .notice--warning}
+
+**Note 2**: Remember that the shown answers are just a reference and are **not** the _absolute_ or _best_ answer for every
 problem. You can solve each problem in several ways, don't feel like you have to match my code.
 {: .notice--warning}
 
