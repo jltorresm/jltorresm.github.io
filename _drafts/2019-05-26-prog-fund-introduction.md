@@ -16,25 +16,25 @@ header:
 
 # Introduction
 
-## Qué es computación?
+## What is computation?
 todo
 
-## Qué es informática?
+## What is Informatics?
 todo
 
-## Arquitectura básica de computadoras (componentes internos)
+## Basic internal structure of a computer.
 todo
 
-## Qué es lenguaje natural?
+## What is a natural language?
 todo
 
-## Qué es un lenguaje de programación
+## What is a programming language.
 todo
 
-## Qué operaciones básicas debe tener un lenguaje de programación
+## What are some of the basic operations of a programming language.
 todo
 
-## Enumere 10 lenguajes de programación.
+## A few programming languages and their purpose.
 todo
 
 Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
