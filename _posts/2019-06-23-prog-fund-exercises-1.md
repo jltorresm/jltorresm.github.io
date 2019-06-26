@@ -1,5 +1,6 @@
 ---
 title:      "Programming Fundamentals: Exercises 1"
+slug:       "exercises-1"
 date:       2019-06-23 07:54:09
 categories: programming-101
 tags:       programming fundamentals 101 exercises conditionals loops for if else

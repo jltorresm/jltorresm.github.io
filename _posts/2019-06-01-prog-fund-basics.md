@@ -1,5 +1,6 @@
 ---
 title:      "Programming Fundamentals: Basics"
+slug:       "basics"
 date:       2019-05-31 20:38:15
 categories: programming-101
 tags:       programming fundamentals 101

@@ -1,5 +1,6 @@
 ---
 title:      "Programming Fundamentals: Conditionals and Loops"
+slug:       "conditionals-loops"
 date:       2019-06-18 16:10:00
 categories: programming-101
 tags:       programming fundamentals 101 conditionals comparison if switch loop iteration while for do-while

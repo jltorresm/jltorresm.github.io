@@ -1,5 +1,6 @@
 ---
 title:      "Programming Fundamentals: Variables, types and operators"
+slug:       "variables-types-operators"
 date:       2019-06-12 13:17:27
 categories: programming-101
 tags:       programming fundamentals 101 variable type operators
