@@ -26,7 +26,7 @@ provide several ways to control the flow of the program, decide what to do in a 
 statement checking.
 
 From the last post we know that there exist a handful of
-[logic comparison operators](http://127.0.0.1:4000/programming-101/prog-fund-variables-types-operators/#operators).
+[logic comparison operators](http://127.0.0.1:4000/programming-101/variables-types-operators/#operators).
 These will be our tools to compare variables, constants and other programmable objects and help us decide what to do
 next.
 
