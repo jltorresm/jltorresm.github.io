@@ -23,7 +23,7 @@ solve some toy problems.
 ### Worst multiplication algorithm ever
 Write a program that multiplies 2 positive integers only using consecutive additions.
 
-```go
+{% highlight go linenos %}
 package main
 
 import "fmt"
@@ -37,7 +37,7 @@ func main() {
 
 	fmt.Printf("The result of %d * %d is: %d", multiplicand, multiplier, total)
 }
-```
+{% endhighlight %}
 
 **Note**: Think what will happen with this algorithm when the multiplicand and/or multiplier are negative. How would you
 solve the problems that arise.
@@ -48,7 +48,7 @@ divisible by `5` with the word `buzz` and, all the numbers divisible by `3` and 
 
 I'll show you 3 alternatives to solve this problem:
 
-```go
+{% highlight go linenos %}
 // Solution 1
 package main
 
@@ -67,11 +67,11 @@ func main() {
 		}
 	}
 }
-```
+{% endhighlight %}
 
 Next up, the same logic but expressed more clearly with a switch instead of a series of `if...else`:
 
-```go
+{% highlight go linenos %}
 // Solution 2
 package main
 
@@ -91,11 +91,11 @@ func main() {
 		}
 	}
 }
-```
+{% endhighlight %}
 
 Finally, here is a solution that simplifies the conditions but needs a support variable:
 
-```go
+{% highlight go linenos %}
 // Solution 3
 package main
 
@@ -122,7 +122,7 @@ func main() {
 		fmt.Print(" ")
 	}
 }
-```
+{% endhighlight %}
 
 Point is, there are countless ways of solving the same problem. Do your best to find the best solution for you.
 
@@ -130,7 +130,7 @@ Point is, there are countless ways of solving the same problem. Do your best to 
 Let create a program that calculates the `n`th power of another number, using only consecutive multiplications. For now
 we will not worry too much about memory limits. We'll just try small numbers to avoid the computer from exploding.
 
-```go
+{% highlight go linenos %}
 package main
 
 import "fmt"
@@ -144,12 +144,12 @@ func main() {
 
 	fmt.Printf("The result of %d to the power of %d is: %d", base, exp, total)
 }
-```
+{% endhighlight %}
 
 ### Prime number
 Write a program that calculates if a number is *prime*.
 
-```go
+{% highlight go linenos %}
 package main
 
 import "fmt"
@@ -171,7 +171,7 @@ func main() {
 		fmt.Printf("The number %d is NOT prime.", num)
 	}
 }
-```
+{% endhighlight %}
 
 This solution has several optimizations that could be made. But for learning purposes we can leave it at that.
 
