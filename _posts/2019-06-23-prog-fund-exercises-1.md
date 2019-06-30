@@ -396,7 +396,7 @@ func main() {
 {: .spoiler}
 
 ### Bonus
-- Take a close look at the previous exercise [Power of a number](/programming-101/exercises-1/#power-of-a-number).
+- Take a close look at the previous exercise [Power of a number]({% link _posts/2019-06-23-prog-fund-exercises-1.md %}#power-of-a-number).
   Think what will happen to the showed algorithm when the base is negative? Another problem arises when the exp is
   negative. Describe these problems and propose a solution.
 
