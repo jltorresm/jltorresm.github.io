@@ -20,7 +20,7 @@ after_footer_scripts:
 
 # Site Settings
 locale                   : "en-GB"
-title                    : "A matter of life and death"
+title                    : "Things I learn while adulting"
 title_separator          : "::"
 name                     : "Jose Torres"
 description              : "What I learn while coding and other misc stuff"
