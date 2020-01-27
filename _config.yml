@@ -170,6 +170,7 @@ include:
   - _pages
   - _recipes
 exclude:
+  - .idea
   - "*.sublime-project"
   - "*.sublime-workspace"
   - vendor
