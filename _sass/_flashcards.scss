@@ -1,0 +1,111 @@
+#lang-cards-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  .arrow-prev, .arrow-next {
+    padding: 8px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 0 25px 0 #CCC;
+    color: #BBBBBB;
+    cursor: pointer;
+
+    &:hover {
+      color: #FFFFFF;
+      background-color: $info-color;
+      box-shadow: 0 0 25px 0 $info-color;
+
+    }
+  }
+
+  .card {
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+    padding: 25px;
+    box-shadow: 0 0 25px 0 #CCC;
+    width: 80%;
+    margin: 0 auto;
+
+    h1 {
+      text-transform: capitalize;
+      margin: 0;
+      color: $info-color;
+      font-size: 2.5em;
+      font-weight: 100;
+      line-height: 1.2em;
+    }
+
+    .meta {
+      color: $warning-color;
+      font-size: 0.75em;
+      font-weight: 100;
+      font-style: italic;
+      font-variant: small-caps;
+    }
+
+    .cta {
+      font-size: 0.75em;
+      color: $info-color;
+      font-weight: 100;
+      cursor: pointer;
+      margin: 0 0 15px;
+      text-transform: capitalize;
+
+      &:hover {
+        color: $warning-color;
+      }
+
+      svg {
+        margin-left: 10px;
+      }
+    }
+
+    .definition {
+      color: $primary-color;
+      font-size: 1em;
+      font-weight: 100;
+      text-transform: lowercase;
+
+      &:first-letter {
+        text-transform: uppercase;
+      }
+    }
+
+    .extra {
+      &-title {
+        font-size: 0.75em;
+        color: $info-color;
+        font-weight: 100;
+        cursor: pointer;
+        margin: 0;
+        text-transform: capitalize;
+
+        &:hover {
+          color: $warning-color;
+        }
+
+        svg {
+          margin-left: 10px;
+        }
+      }
+
+      &-info {
+        list-style: none;
+        font-size: 1em;
+        color: gray;
+        padding-left: 15px;
+        margin: 0;
+        text-transform: lowercase;
+
+        li {
+          color: $primary-color;
+          font-size: 0.75em;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+  }
+}

@@ -8,6 +8,9 @@
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
 
+// Import my own stylesheets
+@import "flashcards";
+
 .layout--home {
 	.initial-content {
 		#main {
@@ -36,3 +39,30 @@
 		}
 	}
 }
+
+.other-interesting-pages {
+	.nav__list {
+		.nav__items {
+			li {
+				display: inline-block;
+
+				.nav__sub-title {
+					color: $info-color;
+					text-transform: none;
+					font-weight: 100;
+					border: 1px solid $info-color;
+					border-radius: 5px;
+					padding: 7px 15px;
+					font-size: 0.6em;
+
+					&:hover {
+						color: mix(#000000, $info-color, 20%);
+						border-color:  mix(#000000, $info-color, 20%);
+						background-color: lighten($info-color, 45%);
+					}
+				}
+			}
+		}
+	}
+}
+

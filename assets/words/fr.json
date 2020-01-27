@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "types": {
+      "0": "nom",
+      "1": "verbe"
+    },
+    "genres": {
+      "0": "masculin",
+      "1": "féminin"
+    },
+    "definition": "definition",
+    "conjugation": "conjugaison"
+  },
+  "words": [
+    {
+      "displayName": "la location",
+      "definition": "maison ou appartement loué.",
+      "type": 0,
+      "genre": 1,
+      "conjugation": null
+    },
+    {
+      "displayName": "être",
+      "definition": "auxiliare de temps et de mode, servant à former la conjugaison passive, les temps composés actifs de certains verbes intranstifs, les temp composés des verbes pronominaux.",
+      "type": 1,
+      "genre": null,
+      "conjugation": [
+        "je suis",
+        "tu es",
+        "il/elle/on est",
+        "nous sommes",
+        "vous êtes",
+        "ils/elles sont"
+      ]
+    }
+  ]
+}
