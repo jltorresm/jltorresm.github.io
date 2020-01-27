@@ -63,13 +63,34 @@ function handleWordSuccess(selector, response) {
 	let vocabulary = JSON.parse(response);
 
 	// Randomize words in memory
-	// TODO: randomize me
+	vocabulary.words = arrayShuffle(vocabulary.words);
 
 	// Select max 300 words, discard the rest
 	vocabulary.words = vocabulary.words.slice(0, 300);
 
 	// Render the first flashcard and bind the events to navigate the vocabulary
 	renderFlashcard(selector, vocabulary, 0);
+}
+
+/**
+ * Randomizes an array in place.
+ *
+ * @param array Array to be shuffled.
+ * @returns array The shuffled array.
+ */
+function arrayShuffle(array) {
+	// Iterate over the array once, from the end to the beginning
+	for (let idx = array.length - 1; idx > 0; idx--) {
+		// Choose an index at random
+		let randomIdx = Math.floor(Math.random() * idx);
+
+		// Swap the randomly chosen element and the current one
+		let temporaryValue = array[idx];
+		array[idx] = array[randomIdx];
+		array[randomIdx] = temporaryValue;
+	}
+
+	return array;
 }
 
 const flashcardTpl = `
@@ -118,7 +139,7 @@ function renderFlashcard(selector, vocabulary, idx) {
 	}
 
 	$container.innerHTML = flashcardTpl
-		.replace("{{ prev }}", prev)
+		.replace("{{ prev }}", prev.toString())
 		.replace("{{ displayName }}", word.displayName)
 		.replace("{{ meta }}", meta)
 		.replace("{{ cta }}", vocabulary.meta.definition)
@@ -126,7 +147,7 @@ function renderFlashcard(selector, vocabulary, idx) {
 		.replace("{{ extraClass }}", extraClass)
 		.replace("{{ extraTitle }}", extraTitle)
 		.replace("{{ extraInfo }}", extraInfo)
-		.replace("{{ next }}", next)
+		.replace("{{ next }}", next.toString())
 	;
 
 	setTimeout(function () {
@@ -143,23 +164,23 @@ function renderFlashcard(selector, vocabulary, idx) {
  */
 function bindListeners(selector, vocabulary, $container) {
 	// Bind arrow for prev
-	$container.querySelector(".arrow-prev").onclick = function (e) {
+	$container.querySelector(".arrow-prev").onclick = function () {
 		renderFlashcard(selector, vocabulary, this.getAttribute("data-num"));
 	};
 
 	// Bind arrow for next
-	$container.querySelector(".arrow-next").onclick = function (e) {
+	$container.querySelector(".arrow-next").onclick = function () {
 		renderFlashcard(selector, vocabulary, this.getAttribute("data-num"));
 	};
 
 	// Bind definition reveal
-	$container.querySelector(".cta").onclick = function (e) {
+	$container.querySelector(".cta").onclick = function () {
 		$container.querySelector(".cta + .definition").classList.remove("hidden");
 		this.classList.add("hidden");
 	};
 
 	// Bind extras reveal
-	$container.querySelector(".extra-title").onclick = function (e) {
+	$container.querySelector(".extra-title").onclick = function () {
 		const $element = $container.querySelector(".extra-title + .extra-info");
 		if ($element.classList.contains("hidden")) {
 			$element.classList.remove("hidden");
