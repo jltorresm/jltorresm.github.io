@@ -2,7 +2,8 @@
   "meta": {
     "types": {
       "0": "nom",
-      "1": "verbe"
+      "1": "verbe",
+      "2": "préposition"
     },
     "genres": {
       "0": "masculin",
@@ -32,6 +33,71 @@
         "vous êtes",
         "ils/elles sont"
       ]
+    },
+    {
+      "displayName": "depuis",
+      "definition": "Indique le début, le point de départ dans le temp d'une action, d'un état qui dure jusqu'au moment oú l'on parle.",
+      "type": 2,
+      "genre": null,
+      "conjugation": null
+    },
+    {
+      "displayName": "entretenir",
+      "definition": "Faire le nécessaire pour conserver un objet, un lieu, le maintenir en bon état de propreté ou de fonctionnement.",
+      "type": 1,
+      "genre": null,
+      "conjugation": [
+        "j'entretiens",
+        "tu entretiens",
+        "il/elle entretient",
+        "nous entretenons",
+        "vous entretenez",
+        "ils/elles entretiennent"
+      ]
+    },
+    {
+      "displayName": "salir",
+      "definition": "Rendre quelque chose sale (Qui est couvert de taches, de matières étrangères).",
+      "type": 1,
+      "genre": null,
+      "conjugation": [
+        "je salis",
+        "tu salis",
+        "il/elle salit",
+        "nous salissons",
+        "vous salissez",
+        "ils/elles salissent"
+      ]
+    },
+    {
+      "displayName": "entendre",
+      "definition": "Percevoir par l'ouïe.",
+      "type": 1,
+      "genre": null,
+      "conjugation": [
+        "je entends",
+        "tu entends",
+        "il/elle entend",
+        "nous entendons",
+        "vous entendez",
+        "ils/elles entendent"
+      ]
+    },
+    {
+      "displayName": "attendre",
+      "definition": "Rester en un lieu jusqu'à ce que quelq'un arrive, que quelque chose soit prêt ou se produise.",
+      "type": 1,
+      "genre": null,
+      "conjugation": [
+        "je attends",
+        "tu attends",
+        "il/elle attend",
+        "nous attendons",
+        "vous attendez",
+        "ils/elles attendent"
+      ]
     }
   ]
 }
+
+(0EWZYKk^f^SA73D1S8MrenF
