@@ -1,7 +1,6 @@
 /*******************************************************************************
  * Flashcard logic
  ******************************************************************************/
-
 /**
  * Init the flashcard module.
  *
@@ -74,7 +73,7 @@ function handleWordSuccess(selector, response) {
 }
 
 const flashcardTpl = `
-<i class="fas fa-arrow-left arrow-prev" data-num="{{ prev }}"></i>
+<div class="arrow-prev" data-num="{{ prev }}"><i class="fas fa-arrow-left"></i></div>
 <div class="card">
 	<h1>{{ displayName }}</h1>
 	<p class="meta">{{ meta }}</p>
@@ -83,7 +82,7 @@ const flashcardTpl = `
 	<p class="extra-title{{ extraClass }}">{{ extraTitle }}<i class="fas fa-sort-amount-down-alt"></i></p>
 	<ul class="extra-info hidden">{{ extraInfo }}</ul>
 </div>
-<i class="fas fa-arrow-right arrow-next" data-num="{{ next }}"></i>
+<div class="arrow-next" data-num="{{ next }}"><i class="fas fa-arrow-right"></i>
 `;
 
 /**
