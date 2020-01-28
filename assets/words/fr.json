@@ -96,6 +96,55 @@
         "vous attendez",
         "ils/elles attendent"
       ]
+    },
+    {
+      "displayName": "le retard",
+      "definition": "Action, fait d'arriver trop tard, de faire quelque chose plus tard qu'il ne faudrait.",
+      "type": 0,
+      "genre": 0,
+      "conjugation": null
+    },
+    {
+      "displayName": "la valise",
+      "definition": "Bagage de forme rectangulaire, fait pour être porté à la main.",
+      "type": 0,
+      "genre": 1,
+      "conjugation": null
+    },
+    {
+      "displayName": "la réduction",
+      "definition": "Action de réduire quelque chose, d'en diminuer la valeur, le nombre, la quantité, l'importance.",
+      "type": 0,
+      "genre": 1,
+      "conjugation": null
+    },
+    {
+      "displayName": "la destination",
+      "definition": "Lieu vers lequel quelque chose ou quelqu'un se dirige, est dirigé.",
+      "type": 0,
+      "genre": 1,
+      "conjugation": null
+    },
+    {
+      "displayName": "la provenance",
+      "definition": "Endroit d'où quelque chose vient ou provient.",
+      "type": 0,
+      "genre": 1,
+      "conjugation": null
+    },
+    {
+      "displayName": "se détendre",
+      "definition": "Se relâcher. Décontracter ses muscles, libérer son esprit des sources des préoccupations, d'une tension nerveuse ou intellectuelle.",
+      "type": 0,
+      "genre": 1,
+      "conjugation": [
+        "je me détends",
+        "tu te détends",
+        "il/elle se détend",
+        "nous nous détendons",
+        "vous vous détendez",
+        "ils/elles se détendent"
+      ]
     }
   ]
 }
