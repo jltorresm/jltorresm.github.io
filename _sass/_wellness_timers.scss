@@ -1,0 +1,95 @@
+#wellness-timers-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  .timer {
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+    padding: 25px;
+    box-shadow: 0 0 25px 0 #CCC;
+    break-after: always;
+    width: 80%;
+    margin: 0 auto 20px;
+
+    h1 {
+      text-transform: capitalize;
+      margin: 0;
+      color: $info-color;
+      font-size: 2em;
+      font-weight: 100;
+      line-height: 1.2em;
+    }
+
+    .explanation {
+      color: $primary-color;
+      font-size: 0.75em;
+      font-weight: 100;
+      font-style: italic;
+
+      a {
+        color: $warning-color;
+        text-decoration: none;
+      }
+
+      b {
+        color: $danger-color;
+        font-weight: 900;
+      }
+    }
+
+    .timer-container {
+      display: table;
+      margin-bottom: 20px;
+
+      .timer-row {
+        display: table-row;
+
+        label {
+          display: table-cell;
+          color: $primary-color;
+          font-size: 0.8em;
+          font-weight: 100;
+          cursor: default;
+        }
+
+        .timer-body {
+          display: table-cell;
+          padding-left: 10px;
+          font-family: monospace;
+          font-size: 1.5em;
+          color: $primary-color;
+
+          &.active {
+            color: $warning-color;
+          }
+        }
+
+        &.rest {
+          label {
+            color: $info-color;
+          }
+
+          .timer-body {
+            color: $info-color;
+          }
+        }
+      }
+    }
+
+    button {
+      &:focus {
+        outline: none;
+      }
+
+      &.active {
+        background-color: $warning-color;
+      }
+
+      svg {
+        margin-right: 10px;
+      }
+    }
+  }
+}
