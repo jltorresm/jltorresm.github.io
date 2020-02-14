@@ -147,9 +147,9 @@ Pomodoro.prototype.manageRender = function (currentValue, isRunning) {
 };
 
 Pomodoro.prototype.switchPeriod = function () {
-	this.switchCallback();
-
 	this.iteration++;
+
+	this.switchCallback(this.getNotification());
 
 	if (this.getStage() === "s")
 		this.timer = new Timer(this.short, this.manageRender.bind(this), this.switchPeriod.bind(this));
@@ -159,6 +159,17 @@ Pomodoro.prototype.switchPeriod = function () {
 		this.timer = new Timer(this.pomodoroDuration, this.manageRender.bind(this), this.switchPeriod.bind(this));
 
 	this.startStop();
+};
+
+Pomodoro.prototype.getNotification = function () {
+	let msg = "Time to start a new pomodoro";
+
+	if (this.getStage() === "s")
+		msg = "Time to take a short break";
+	else if (this.getStage() === "l")
+		msg = "Time to take a long break";
+
+	return msg;
 };
 
 Pomodoro.prototype.getStage = function () {
@@ -200,9 +211,9 @@ TimerSwitcher.prototype.manageRender = function (currentValue, isRunning) {
 };
 
 TimerSwitcher.prototype.switchPeriod = function () {
-	this.switchCallback();
-
 	this.iteration++;
+
+	this.switchCallback(this.getNotification());
 
 	if (this.getStage() === "a")
 		this.timer = new Timer(this.altDuration, this.manageRender.bind(this), this.switchPeriod.bind(this));
@@ -210,6 +221,15 @@ TimerSwitcher.prototype.switchPeriod = function () {
 		this.timer = new Timer(this.mainDuration, this.manageRender.bind(this), this.switchPeriod.bind(this));
 
 	this.startStop();
+};
+
+TimerSwitcher.prototype.getNotification = function () {
+	let msg = "Time to keep working";
+
+	if (this.getStage() === "a")
+		msg = "Time to give your eyes a short break";
+
+	return msg;
 };
 
 TimerSwitcher.prototype.getStage = function () {
@@ -221,9 +241,35 @@ TimerSwitcher.prototype.getStage = function () {
 //
 // Rings a bell
 //
-function ringBell() {
+function ringBell(msg) {
 	const audio = new Audio('/assets/audio/bell.mp3');
 	audio.play();
+	notify(msg);
+}
+
+//
+// Sends a Desktop notification
+//
+function notify(msg) {
+	// Check if the browser support desktop notifications
+	if (!("Notification" in window)) {
+		alert("This browser does not support desktop notification");
+	}
+
+	// Check if we have permission to notify
+	else if (Notification.permission === "granted") {
+		new Notification(msg);
+	}
+
+	// Otherwise, we need to ask for permission first
+	else if (Notification.permission !== "denied") {
+		Notification.requestPermission().then(function (permission) {
+			notify(msg);
+		});
+	}
+
+	// At last, if the user has denied notifications, and you
+	// want to be respectful there is no need to bother them any more.
 }
 
 /*******************************************************************************
