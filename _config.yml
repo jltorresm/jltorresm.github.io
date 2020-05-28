@@ -20,7 +20,8 @@ after_footer_scripts:
 
 # Site Settings
 locale                   : "en-GB"
-title                    : "Things I learn while adulting"
+title                    : "Eventual Consistency"
+# subtitle                 : "subtitle"
 title_separator          : "::"
 name                     : "Jose Torres"
 description              : "What I learn while coding and other misc stuff"
