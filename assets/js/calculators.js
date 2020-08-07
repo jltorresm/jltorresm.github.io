@@ -1,4 +1,4 @@
-Vue.config.devtools = true;
+Vue.config.devtools = false;
 
 function asMilliseconds(value) {
 	const duration = moment.duration(value);
@@ -147,4 +147,75 @@ new Vue({
 			}
 		}
 	}
+});
+
+const factorTable = {
+	km: {m: 1000, km: 1, mi: 0.6213712, yard: 1093.613, feet: 3280.84, inch: 39370.08},
+	m: {m: 1, km: 0.001, mi: 0.0006213712, yard: 1.093613, feet: 3.28084, inch: 39.37008},
+	mi: {m: 1609.344, km: 1.609344, mi: 1, yard: 1760, feet: 5280, inch: 63360},
+	yard: {m: 0.9144, km: 0.0009144, mi: 0.0005681818, yard: 1, feet: 3, inch: 36},
+	feet: {m: 0.3048, km: 0.0003048, mi: 0.0001893939, yard: 0.333333264, feet: 1, inch: 12},
+	inch: {m: 0.0254, km: 0.0000254, mi: 0.00001578283, yard: 0.0277777808, feet: 0.0833333424, inch: 1},
+};
+
+// Distance Conversion Vue instance
+new Vue({
+	el: "#distance-converter",
+
+	// Change delimiters to avoid conflicts
+	delimiters: ['[[', ']]'],
+
+	// app initial state
+	data: {
+		availableUnits: {km: "kilometre", m: "metre", mi: "mile", yard: "yard", feet: "feet", inch: "inch"},
+		distance: null,
+		unit: "km",
+		error: "",
+	},
+
+	// computed properties
+	// http://vuejs.org/guide/computed.html
+	computed: {},
+
+	watch: {
+		distance: function () {
+			if (this.distance === "") {
+				this.error = "Please use numbers only.";
+				return;
+			}
+
+			this.error = "";
+		}
+	},
+
+	filters: {
+		capitalize: function (value) {
+			if (!value) {
+				return "";
+			}
+
+			value = value.toString();
+
+			return value.charAt(0).toUpperCase() + value.slice(1);
+		}
+	},
+
+	// methods that implement data logic.
+	// note there's no DOM manipulation here at all.
+	methods: {
+		convertTo: function (targetUnit) {
+			const targetValue = this.distance * factorTable[this.unit][targetUnit];
+
+			if (Number.isInteger(targetValue)) {
+				return targetValue;
+			}
+
+			return targetValue.toFixed(3);
+		}
+	},
+
+	// a custom directive to wait for the DOM to be updated
+	// before focusing on the input field.
+	// http://vuejs.org/guide/custom-directive.html
+	directives: {}
 });

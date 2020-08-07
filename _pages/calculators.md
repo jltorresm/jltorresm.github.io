@@ -54,9 +54,41 @@ permalink: /calculators
     </section>
 </div>
 
+<div class="calculator" id="distance-converter">
+    <header class="header">
+        <h1>Distance Conversions</h1>
+        <p class="explanation">Insert your distance and select the original units.</p>
+        <p class="notice--danger" v-show="!!error">[[ error ]]</p>
+        <div class="form">
+            <input
+                class="new-value"
+                autocomplete="off"
+                placeholder="Insert a distance..."
+                type="number"
+                v-model.number="distance"
+            />
+            <div class="options">
+            <template v-for="(readable, value, idx) in availableUnits" v-bind:key="idx">
+                <input 
+                    v-model="unit" 
+                    v-bind:id="'unit-'+value" 
+                    v-bind:value="value" 
+                    name="unit" 
+                    type="radio" 
+                    class="group" 
+                />
+                <label v-bind:for="'unit-'+value">[[ readable ]]</label>
+            </template>
+            </div>
+        </div>
+    </header>
+    <section class="results">
+        <label v-for="(readable, value) in availableUnits">[[ readable | capitalize ]]:<em>[[ convertTo(value) ]]</em></label>
+    </section>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
 <script src="/assets/js/dist/moment-duration-format.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-# <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script src="/assets/js/calculators.js"></script>
     
