@@ -95,7 +95,7 @@ new Vue({
 		},
 
 		editTime: function (time) {
-			this.beforeEditCache = time.milliseconds;
+			this.beforeEditCache = time.value;
 			this.editedTime = time;
 		},
 
