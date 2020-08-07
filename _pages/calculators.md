@@ -4,7 +4,7 @@ title: Some Random Calculators
 permalink: /calculators
 ---
 
-<div id="time-calculator">
+<div class="calculator" id="time-calculator">
     <header class="header">
         <h1>Times</h1>
         <p class="explanation">Add times in the format <em>hh:mm:ss</em> 
@@ -13,7 +13,7 @@ permalink: /calculators
         <br>Click on the <em>clear</em> button to remove all current times.</p>
         <div class="form">
             <input
-                class="new-time"
+                class="new-value"
                 autocomplete="off"
                 placeholder="Add time..."
                 v-model="newTime"
@@ -25,7 +25,7 @@ permalink: /calculators
         </div>
     </header>
     <section class="main" v-show="times.length" v-cloak>
-        <ul class="time-list">
+        <ul class="values-list">
             <li
                 v-for="time in times"
                 class="time"
