@@ -1,9 +1,7 @@
 # main links
 main:
-  - title: "Tech series"
+  - title: "All Categories"
     url: /categories
-  - title: "Food series"
-    url: /recipes
   - title: "About"
     url: /about
 interesting:

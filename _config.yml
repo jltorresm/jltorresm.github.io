@@ -148,9 +148,9 @@ footer:
     - label: "Stack Overflow"
       icon: "fab fa-fw fa-stack-overflow"
       url: "http://stackoverflow.com/users/2880704/jltorresm"
-    - label: "Recipes Feed"
+    - label: "Feed de Recetas"
       icon: "fas fa-fw fa-pizza-slice"
-      url: "/feed/recipes.xml"
+      url: "/feed/recetas.xml"
     # - label: "Facebook"
     #   icon: "fab fa-fw fa-facebook-square"
     #   url:
@@ -169,7 +169,7 @@ footer:
 include:
   - .htaccess
   - _pages
-  - _recipes
+  - _recetas
 exclude:
   - .idea
   - "*.sublime-project"
@@ -293,13 +293,13 @@ compress_html:
     envs: development
 
 collections:
-  recipes:
+  recetas:
     output: true
     permalink: /:collection/:title/
 
 feed:
   collections:
-    - recipes
+    - recetas
 
 # Defaults
 defaults:
@@ -321,10 +321,10 @@ defaults:
       comments: # true
       share: # true
       related: true
-  # _recipes
+  # _recetas
   - scope:
       path: ""
-      type: recipes
+      type: recetas
     values:
       layout: single
       author_profile: true

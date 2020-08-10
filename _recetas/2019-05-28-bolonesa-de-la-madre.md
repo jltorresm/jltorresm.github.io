@@ -8,9 +8,9 @@ toc_sticky: true
 toc_label:  "En esta receta"
 toc_icon:   "utensils"
 header:
-  overlay_image:  "/assets/images/recipes.jpg"
+  overlay_image:  "/assets/images/recetas.jpg"
   overlay_filter: rgba(255, 255, 255, 0.1)
-  teaser:         "/assets/images/recipes.jpg"
+  teaser:         "/assets/images/recetas.jpg"
   caption:        "Photo by [Todd Quackenbush](https://unsplash.com/@toddquackenbush) on Unsplash"
 ---
 

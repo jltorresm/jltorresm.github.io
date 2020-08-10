@@ -1,7 +1,7 @@
 ---
 layout: collection
-collection: recipes
-permalink: /recipes
+collection: recetas
+permalink: /recetas
 author_profile: false
-title: "Recipes"
+title: "Recetas"
 ---
