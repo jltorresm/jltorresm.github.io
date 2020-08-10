@@ -3,3 +3,6 @@ serve:
 
 incremental:
 	bundle exec jekyll serve --incremental
+
+drafts:
+	bundle exec jekyll serve --watch --drafts
