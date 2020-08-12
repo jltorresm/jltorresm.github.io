@@ -1,6 +1,6 @@
 ---
 title:      "Sopa de Quinoa"
-date:       2019-08-12 00:00:00
+date:       2020-08-12 00:00:00
 categories: sopa
 tags:       sopa soup quinoa
 toc:        true
