@@ -1,18 +1,21 @@
 ---
 title:      "Simple Streaming Server with AWS"
 slug:       "simple-streaming-server-aws"
-date:       2020-08-10 00:00:00
+date:       2020-08-24 00:00:00
 categories: cloud
 tags:       aws streaming media server cloud architecture
 toc:        true
 toc_sticky: true
-toc_label:  "In this article"
-toc_icon:   "flask"
+toc_label:  "In this post"
+toc_icon:   "video"
 header:
   overlay_image:  "/assets/images/streaming.jpg"
   teaser:         "/assets/images/streaming.jpg"
   overlay_filter: rgba(0, 0, 0, 0.5)
   caption:        "Photo by [Pinho](https://unsplash.com/@pinho) on Unsplash"
+
+excerpt: "Learn the basic software architecture decisions we had to make to
+build a video streaming server using the AWS infrastructure."
 
 simple_architecture:
   - image_path: /assets/images/2020-08-10-media-server-aws/simple-architecture.jpg
@@ -25,45 +28,52 @@ prod_architecture:
     title:      "Production grade architecture."
 ---
 
-Almost every modern application will consume some sort of multimedia. In this
-post you will learn the basic architectural decisions required to build a video
-streaming server using the AWS infrastructure.
+On a recent project I've been working, a specialized social network of sorts,
+users can post announcements to their communities using a simple WYSIWYG
+editor. It is limited to rich format text, and an additional field allows you
+to upload photos.
+
+However, from a social network perspective, video has become the new de facto
+standard for content sharing. For this reason we wanted to add a simple
+mechanism to upload videos and reproduce them in the main social feed.
+
+The video upload seemed simple enough, but when it comes to integrate this
+functionality with all the moving parts of the system the problem becomes
+much more complex and interesting.
 
 ## The Challenge
-Several applications have some sort of multimedia sharing option. It can be
-either via a feed where multiple users can see other people's activities and
-postings or in other, more dedicated, screens as well.
 
-The capture and display of static multimedia such as images is not usually a
-major concern because most software libraries give us that for free and in
-any case the data transfer and handling of bandwidth is easier. The problem
-arises when the application supports the capture and display of video.
+The app already supports uploading images. We do it via an API, and we store
+the processed assets in a S3 bucket. This functionality is not usually a major
+concern because most software libraries give us image handling for free
+(and on the user's phone the data usage is not massive). The problem arises
+when the application supports the capture and display of video.
 
-This type of multimedia brings two dominant problems: client bandwidth and
-client codec limitations.
+This type of multimedia brings two dominant obstacles: client bandwidth and
+client codec restrictions.
 
 Within the context of a mobile application, we have to consider the bandwidth
 to be limited. Internet providers usually cap how much data can be transmitted
 and often the speed is truncated based on signal loss. The latter also
 produces intermittency in the up connection, but that is a problem beyond the
-scope of this particular analysis.
+scope of this particular analysis (I will leave some suggestions about this
+point at the end of the article).
 
 Plus, besides the data transfer impediments, mobile applications have to
 consider which set of codecs are available in a particular device. Blindly
 attempting a playback, without considering codecs, can often result in
-unexpected errors in the video player and, in many cases, frustration for the
- users.
+unexpected errors in the video player and frustration for the users.
 
 
-## Why AWS
+## Why AWS?
 Even though there are diverse providers for cloud solutions, AWS has a set of
 features that make it easy to build an on-demand media server while fitting
-right with most companies' infrastructure and development processes.
+right with the existing application infrastructure and development processes.
 
-If your particular case doesn't fit adequately with the AWS environment, most of
-the concepts presented in this article are still valid and can be adapted to
-whichever cloud provider you opt to use (or with a bit of work even in-house
-solutions).
+If you want to build something similar but don't use the AWS environment,
+most of the concepts presented in this article are still valid and can be
+adapted to whichever cloud provider you opt to use (or with some hard work
+even an in-house solution).
 
 ## Chosen Components
 
@@ -105,12 +115,11 @@ the application servers. This service can also handle the creation of
 manifestos for smooth streaming if not already handled by any of the
 previously mentioned components.
 
-## Optional Alternatives
-Depending on the requirements and demands of your software solution, the
-components mentioned above are more than enough to handle decent traffic.
+## Other Alternatives
+The components mentioned above are more than enough to handle decent traffic.
 However, if your app needs to perform smoothly under higher loads, then you
-might need to consider using other AWS services that are designed to handle
-those loads.
+might need to consider using other AWS services (that are designed
+specifically for multimedia) which can handle that kind of stress.
 
 ### Amazon Elemental MediaStore
 "AWS Elemental MediaStore is optimized to deliver performance to meet the
@@ -161,7 +170,7 @@ course, you have to also consider other additional side costs that are not
 mentioned in this table, such as the cost to implement and host the API that
 will communicate with a mobile client, the cost of that mobile app, etc.
 However, this example can give you an idea of the cost of transcoding and
-hosting the media files.
+hosting the media files alone.
 
 **Example 2** - 
 _Cost of transcoding to SD and HD per hour of video (revised the 2020-08-10)_.
@@ -187,18 +196,49 @@ architecture would look something like this:
  
 {% include gallery id="simple_architecture" layout="align-center" caption="Simple Media Server Architecture." %}
 
+Where the user is the one triggering the whole process by choosing to upload
+a video file. Then, our cloud infrastructure does the whole processing in a
+transparent and asynchronous fashion.
+
 ## Production Grade Architecture
 _Automating The Data Transformation Process_
 
-The architecture specified above can be accomplished with a simple custom API
-that will orchestrate the storage of metadata and the initiation of
-transcoding jobs to convert videos into a stream format.
+To achieve full automation of the transcoding process we need to add a few
+other components that will handle communication between steps and finally
+with the end user. 
 
-However, if we want to achieve full automation in the transformation process
-we need to introduce a couple new variables to our equation. A more detailed
-view of a production architecture would look more like this:
+With the full suite of services in place the architecture would look more
+like this:
 
 {% include gallery id="prod_architecture" layout="align-center" caption="Production grade architecture." %}
+
+The user triggers the process by choosing the video file from the mobile app.
+This initiates 2 actions: a direct upload to an S3 bucket (via pre-signed AWS
+objects), and a request to the app's API to save the video's basic metadata.
+
+When the S3 bucket receives the full data, a lambda function will pick the
+event up to start the transcoding process. The conversion itself happens within
+the MediaConvert service, but it is initiated by the lambda function.
+
+The resulting files will go to another S3 bucket where they will be stored
+and later access by the user. However, the files won't be directly accesible
+from the bucket, it will go through a CloudFormation distribution which will
+provide a secure connection (HTTPS) and geographical distribution (CDN).
+
+Once the transcoding ends, CloudWatch will be called to notify the API of
+the outcome of the process. If it ends successfully some more metadata
+(resolution, size, etc.) will be sent from AWS to the API to complete the DB
+record. Otherwise, the message will carry the error state so that the record
+in the API's DB is updated accordingly as well.
+
+### Upload Resilience
+Depending on the requirements of your application, and the tolerance of your
+users, the upload process must be quite robust. The recommended approach is
+to implement multipart uploads, AWS supports doing so via special upload
+commands.
+
+This will enable your mobile application to fail uploading a part, because of
+network loss for example, and later resume when connection is back.
 
 ## Further Reading
 
