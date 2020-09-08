@@ -166,20 +166,3 @@ By NCSC, taken from Troy Hunt's "Have I Been Pwned" data set.
 [^krebsTwitterAttack]: Bryan Krebs. Three Charged in July 15 Twitter Compromise. [URL](https://krebsonsecurity.com/2020/07/three-charged-in-july-15-twitter-compromise/). Published: 2020-07-31.
 [^twitterAnnouncement]: Official Twitter Statement about July 15 compromise. [URL](https://twitter.com/TwitterSupport/status/1289000138300563457). Published: 2020-07-30.
 [^totp]: Time-based One-time Password algorithm. [URL](https://en.wikipedia.org/wiki/Time-based_One-time_Password_algorithm). Accessed: 2020-09-07.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
