@@ -1,0 +1,132 @@
+.interactive-demo {
+  border: 1px solid #DDDDDD;
+  border-radius: 5px;
+  padding: 25px;
+  box-shadow: 0 0 25px 0 #CCC;
+  width: 85%;
+  margin: 0 auto 20px;
+
+  .explanation {
+    color: $primary-color;
+    font-size: 0.75em;
+    font-weight: 100;
+    font-style: italic;
+
+    em {
+      color: $warning-color;
+      text-decoration: none;
+      font-family: monospace;
+      font-style: normal;
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-flow: row wrap;
+
+    button {
+      flex: 1;
+
+      &:focus {
+        outline: none;
+      }
+
+      i {
+        margin-right: 10px;
+      }
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      width: 100%;
+      padding: 5px;
+      justify-content: center;
+
+      @include breakpoint($small) {
+        display: flex;
+      }
+
+      input.group {
+        display: none;
+
+        & + label {
+          display: inline-block;
+          border-top: 1px solid $info-color;
+          border-bottom: 1px solid $info-color;
+          border-left: 1px solid $info-color;
+          margin: -1px 0 0 0;
+          padding: 5px 15px;
+          color: $info-color;
+          text-align: center;
+
+          &:first-of-type {
+            @include breakpoint($small) {
+              border-radius: 5px 0 0 5px;
+            }
+          }
+
+          &:last-of-type {
+            border-right: 1px solid $info-color;
+            @include breakpoint($small) {
+              border-radius: 0 5px 5px 0;
+            }
+          }
+
+          &:hover {
+            background: lighten($info-color, 30%);
+            color: darken($info-color, 15%);
+          }
+
+          @include breakpoint(max-width $small - 1) {
+            &:nth-of-type(1) {
+              border-radius: 5px 0 0 0;
+            }
+
+            &:nth-of-type(3) {
+              border-right: 1px solid $info-color;
+              border-radius: 0 5px 0 0;
+            }
+
+            &:nth-of-type(4) {
+              border-radius: 0 0 0 5px;
+            }
+
+            &:nth-of-type(6) {
+              border-radius: 0 0 5px 0;
+            }
+          }
+        }
+
+        &:checked + label {
+          cursor: default;
+          background: $info-color;
+          color: #FFFFFF;
+          transition: color 300ms, background 300ms;
+
+          &:after {
+            left: 0;
+          }
+        }
+
+        &:disabled + label {
+          color: $gray;
+          border-color: $light-gray;
+          cursor: default;
+        }
+
+        &:disabled:checked + label {
+          background: $light-gray;
+        }
+      }
+    }
+  }
+
+  .graph {
+    text-align: center;
+
+    canvas {
+      border: 5px solid black;
+    }
+  }
+}
