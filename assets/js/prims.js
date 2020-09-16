@@ -17,16 +17,16 @@ new Vue({
 	// App's initial state
 	data: {
 		// Options
-		availableDelays: {slow: 500, fast: 100, lightspeed: 0},
+		availableDelays: {slow: 500, faster: 100, fastest: 0},
 		availableSizes: ["small", "medium", "big"],
-		delay: 500,
-		size: "small",
+		delay: 100,
+		size: "medium",
 
 		// State
 		isRunning: false,
 
 		// Internal config
-		shouldDebug: true,
+		shouldDebug: false,
 		cellSize: {width: 10, height: 10},
 		matrixSizes: {
 			small: {width: 10, height: 10},
@@ -46,9 +46,6 @@ new Vue({
 	// computed properties
 	computed: {
 		canvasSize: function () {
-			// const containerWidth = document.getElementById("maze-container").clientWidth;
-			// this.cellSize.width = Math.floor(containerWidth / this.matrixSizes[this.size].width);
-
 			return {
 				width: this.cellSize.width * (this.matrixSizes[this.size].width * 2 - 1),
 				height: this.cellSize.height * (this.matrixSizes[this.size].height * 2 - 1),
@@ -87,8 +84,10 @@ new Vue({
 
 		randomPrim: async function () {
 			// Mark the first cell as part of the maze
-			this.paintCoord(0, 0, COLOR_MAZE);
-			await this.visitCell(0, 0);
+			const {x: firstX, y: firstY} = this.getRandomCell();
+			this.debug("Starting at: [", firstX, ",", firstY, "]");
+			this.paintCoord(firstX, firstY, COLOR_MAZE);
+			await this.visitCell(firstX, firstY);
 
 			// While there are pending walls to be analysed
 			while (this.pending.length > 0) {
@@ -125,7 +124,8 @@ new Vue({
 			this.visited.push(this.coordToString(x, y));
 
 			// Add the neighboring walls to the pending list
-			const adjacent = this.getAdjacentCells(x, y);
+			const adjacent = this.getAdjacentWalls(x, y);
+			this.debug("adjacent walls: ", adjacent);
 
 			for (let i = 0; i < adjacent.length; i++) {
 				if (this.isValidNeighbor(adjacent[i].x, adjacent[i].y)) {
@@ -174,10 +174,10 @@ new Vue({
 			this.visited = [];
 		},
 
-		getAdjacentCells: function (x, y) {
+		getAdjacentWalls: function (x, y) {
 			return [
-				{x: x, y: y + 1}, // north
-				{x: x, y: y - 1}, // south
+				{x: x, y: y - 1}, // north
+				{x: x, y: y + 1}, // south
 				{x: x + 1, y: y}, // east
 				{x: x - 1, y: y}, // west
 			];
@@ -196,7 +196,16 @@ new Vue({
 			}
 
 			// If the new cell is free (not visited yet) we should open the wall
-			const shouldOpen = this.visited.indexOf(this.coordToString(newCell.x, newCell.y)) === -1;
+			let shouldOpen = this.visited.indexOf(this.coordToString(newCell.x, newCell.y)) === -1;
+
+			// If already visited check the other side just in case
+			if (!shouldOpen) {
+				newCell = {x: x, y: y - 1};
+				if (orientation === DIR_HORIZONTAL) {
+					newCell = {x: x - 1, y: y};
+				}
+				shouldOpen = this.visited.indexOf(this.coordToString(newCell.x, newCell.y)) === -1;
+			}
 
 			return {shouldOpen, newCell};
 		},
@@ -208,6 +217,14 @@ new Vue({
 			const offsetY = this.cellSize.height * y;
 
 			this.ctx.fillRect(offsetX, offsetY, this.cellSize.width, this.cellSize.height);
+		},
+
+		getRandomCell: function () {
+			const max = this.matrixSizes[this.size];
+			const x = Math.floor(Math.random() * (max.width - 1));
+			const y = Math.floor(Math.random() * (max.height - 1));
+
+			return {x: x * 2, y: y * 2};
 		},
 	},
 });
