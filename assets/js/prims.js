@@ -18,7 +18,7 @@ new Vue({
 	data: {
 		// Options
 		availableDelays: {slow: 500, faster: 100, fastest: 0},
-		availableSizes: ["small", "medium", "big"],
+		availableSizes: ["small", "medium", "big", "massive"],
 		delay: 100,
 		size: "medium",
 
@@ -27,11 +27,12 @@ new Vue({
 
 		// Internal config
 		shouldDebug: false,
-		cellSize: {width: 10, height: 10},
+		cellSize: {width: 5, height: 5},
 		matrixSizes: {
 			small: {width: 10, height: 10},
 			medium: {width: 20, height: 20},
 			big: {width: 30, height: 30},
+			massive: {width: 100, height: 100},
 		},
 
 		// References to DOM
@@ -46,6 +47,11 @@ new Vue({
 	// computed properties
 	computed: {
 		canvasSize: function () {
+			const containerWidth = document.getElementById("maze-container").clientWidth;
+			this.cellSize.width = Math.floor(containerWidth / this.matrixSizes[this.size].width / 2);
+			// We want square renderings
+			this.cellSize.height = this.cellSize.width;
+
 			return {
 				width: this.cellSize.width * (this.matrixSizes[this.size].width * 2 - 1),
 				height: this.cellSize.height * (this.matrixSizes[this.size].height * 2 - 1),
