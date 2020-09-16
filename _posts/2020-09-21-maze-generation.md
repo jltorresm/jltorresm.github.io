@@ -32,8 +32,9 @@ The real deal
 
 <div class="interactive-demo" id="prims-visualization">
     <header class="header">
-        <p class="explanation"><b>Select</b> the <em>speed</em> of the
-         animation, the <em>size</em> of the maze, and click <em>start</em>.
+        <p class="explanation"><b>Select</b> the <em>speed</em> of the 
+        <b>animation</b>, the <em>size</em> of the <b>maze</b>, and click
+        <em>start</em>.
         </p>
         <div class="form">
             <div class="options">
