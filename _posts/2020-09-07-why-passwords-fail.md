@@ -136,7 +136,7 @@ human vulnerabilities to gain access to [Twitter's] internal systems"
 ## Further Reading
 **Article**. List of "Most hacked passwords".<br>
 By UK's National Cyber Security Centre.
-[Go to aticle](https://www.ncsc.gov.uk/news/most-hacked-passwords-revealed-as-uk-cyber-survey-exposes-gaps-in-online-security).
+[Go to article](https://www.ncsc.gov.uk/news/most-hacked-passwords-revealed-as-uk-cyber-survey-exposes-gaps-in-online-security).
 {: .notice--warning}
 
 **Site**. Check if you have an account that has been compromised in a data
@@ -148,7 +148,7 @@ breach.<br>
 **Article**. Detailed explanation about authentication factors, advantages,
 disadvantages and other security implications.<br>
 "Multi-factor authentication".
-[Go to aticle](https://en.wikipedia.org/wiki/Multi-factor_authentication).
+[Go to article](https://en.wikipedia.org/wiki/Multi-factor_authentication).
 {: .notice--warning}
 
 **Data Dump**. Top 100,000 hacked passwords.<br>
