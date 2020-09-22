@@ -17,9 +17,9 @@ new Vue({
 	// App's initial state
 	data: {
 		// Options
-		availableDelays: {slow: 500, faster: 100, fastest: 0},
+		availableDelays: {slow: 700, faster: 200, fastest: 0},
 		availableSizes: ["small", "medium", "big", "massive"],
-		delay: 100,
+		delay: 200,
 		size: "medium",
 
 		// State
@@ -57,6 +57,10 @@ new Vue({
 				height: this.cellSize.height * (this.matrixSizes[this.size].height * 2 - 1),
 			};
 		},
+
+		canvasExists: function () {
+			return this.canvas !== null;
+		}
 	},
 
 	// methods that implement data logic.
@@ -231,6 +235,16 @@ new Vue({
 			const y = Math.floor(Math.random() * (max.height - 1));
 
 			return {x: x * 2, y: y * 2};
+		},
+
+		saveToPNG: function () {
+			const image = this.canvas
+				.toDataURL("image/png")
+				.replace("image/png", "image/octet-stream");
+			const link = document.createElement('a');
+			link.setAttribute('download', 'maze.png');
+			link.setAttribute('href', image);
+			link.click();
 		},
 	},
 });
